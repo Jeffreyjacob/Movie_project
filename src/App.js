@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Navbars from './container/Navbar';
+import MovieDetails from './pages/MovieDetails';
+import Footer from './container/Footer';
+import "rsuite/dist/rsuite.css";
+import SearchPage from './pages/SearchPage';
+import MoviePage from './pages/MoviePage';
+import Tvshow from './pages/Tvshow';
+import TvseriesDetails from './pages/TvseriesDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bg-[#161616]'>
+      <Navbars/>
+     <Routes>
+       <Route path='/' element={<HomePage/>}/>
+       <Route path='/movieDetails/:movieId' element={<MovieDetails/>}/>
+       <Route path='/Search/:searchItem' element={<SearchPage/>}/>
+       <Route path='/movie' element={<MoviePage/>}/>
+       <Route path='/tvshow' element={<Tvshow/>}/>
+       <Route path='/tvshowdetails/:tvseriesId/:tvseriesName' element={<TvseriesDetails/>}/>
+     </Routes>
+     <Footer/>
     </div>
   );
 }
